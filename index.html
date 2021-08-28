@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css"
+    />
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.min.js"></script>
+
+    <title>www.figma.com</title>
+  </head>
+  <body>
+    <!-- header start -->
+    <header>
+      <h1 class="laptop">IPAD LANDSCAPE</h1>
+      <h1 class="tablet">IPAD PORTRAIT</h1>
+      <h1 class="mobile">IPHONE</h1>
+    </header>
+    <!-- header end -->
+    <!-- navbar start -->
+    <div class="navbar">
+      <time>9:41</time>
+      <i class="fa fa-battery-full"></i>
+      <i class="fa fa-wifi"></i>
+      <i class="fa fa-signal"></i>
+    </div>
+
+    <!-- navbar end  -->
+    <!-- main start -->
+    <div class="main">
+      <div class="main-fram">
+        <div class="frame-1">
+          <h3>The Completely Powerful Booking System for Barbers</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+            maecenas sed faucibus volutpat id eleifend quis elementum.
+          </p>
+          <a href="#" class="button-regular">Get Started</a>
+        </div>
+        <div class="image">
+          <img src="./images/Group 331.png" alt="phone" class="img-laptop" />
+          <img src="./images/tablet.png" alt="phone" class="img-tablet" />
+          <img src="./images/mobile.png" alt="phone" class="img-mobile" />
+        </div>
+      </div>
+
+      <div class="main-frame-2">
+        <div class="form-frame">
+          <form action="">
+            <label for="Name">Full Name</label>
+            <br />
+            <input
+              type="text"
+              name="Name"
+              placeholder="please enter your full name"
+            />
+            <br />
+
+            <label for="Email">Email</label>
+            <br />
+            <input
+              type="text"
+              name="Email"
+              placeholder="please enter your email"
+            />
+            <br />
+            <label for="PhoneNumber">Phone Number</label>
+            <br />
+            <div class="input">
+              <input type="text" id="phone" />
+            </div>
+
+            <label for="business">Business Name</label>
+            <input
+              type="text"
+              name="business"
+              placeholder="please enter your business name here"
+            />
+            <br />
+            <label for="country">Country</label>
+            <br />
+            <img src="./images/Frame 439.png" alt="" class="country" />
+            <br />
+            <input type="checkbox" name="check" id="checks" />
+            <label for="check" id="label-check"
+              >I agree to all terms & conditions and policy features .</label
+            >
+
+            <a href="#" class="button-web">Create Your Account</a>
+            <div>
+              <p class="account">Already have a Nearcut account?</p>
+              <a href="#" class="login">Login Here</a>
+            </div>
+          </form>
+        </div>
+        <div class="text">
+          <h3>Complete the registration form to get started</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+            maecenas sed faucibus volutpat id eleifend quis elementum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+            maecenas sed faucibus volutpat id eleifend quis elementum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+            maecenas sed faucibus volutpat id eleifend quis elementum.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- main end -->
+    <!-- footer start -->
+    <footer>
+      <div class="logo">
+        <img src="./images/barber.png" alt="" class="img-logo" />
+        <img src="./images/text.png" alt="" class="text-logo" />
+      </div>
+      <p>So much more than a booking system</p>
+      <div><i class="fa fa-phone"></i><span>01 606 277 565</span></div>
+      <div><i class="fa fa-envelope"></i><span>Email Us</span></div>
+      <div class="social-media">
+        <p>Social Media</p>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"> <i class="fa fa-instagram"></i></a>
+        <a href="#"> <i class="fa fa-twitter"></i></a>
+        <a href="#"> <i class="fa fa-linkedin"></i></a>
+      </div>
+    </footer>
+
+    <script>
+      var input = document.querySelector("#phone");
+      intlTelInput(input, {
+        initialCountry: "auto",
+        geoIpLookup: function (success, failure) {
+          $.get("https://ipinfo.io", function () {}, "jsonp").always(function (
+            resp
+          ) {
+            var countryCode = resp && resp.country ? resp.country : "us";
+            success(countryCode);
+          });
+        },
+      });
+    </script>
+  </body>
+</html>
